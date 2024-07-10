@@ -136,10 +136,10 @@ contract BPNFTContract is
         super._increaseBalance(account, value);
     }
 
-    funtion tokenURI(
+    function tokenURI(
         uint256 tokenId
     ) public view override(ERC721, ERC721URIStorage) returns (string memory) {
-        _requiredOwened(tokenId);
+        _requireOwned(tokenId);
         return s_token_uri_holder;
     }
 
