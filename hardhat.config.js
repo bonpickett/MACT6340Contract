@@ -27,11 +27,11 @@ module.exports = {
     enabled: process.env.REPORT_GAS ? true : false,
     currency: "USD",
     coinmarketcap: COINMARKETCAP_API_KEY,
-    token: "MATIC",
+    token: "MATIC", // ETH for testing
     outputFile: "gas-report.txt",
     noColors: true,
   },
-  defaultNetwork: "hardhat", // hardhat for testing, change this for different networks polygonMumbai
+  defaultNetwork: "polygonMumbai", // hardhat for testing, change this for different networks (polygonMumbai)
   networks: {
     hardhat: {
       chainId: 31337,
