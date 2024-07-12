@@ -6,7 +6,7 @@ const POLYGONSCAN_API_KEY = process.env.POLYGONSCAN_API_KEY;
 const ALCHEMY_API_KEY = process.env.ALCHEMY_API_KEY;
 
 // change these for different networks
-const ALCHEMY_URL = `https://polygon-mumbai.g.alchemy.com/v2/${ALCHEMY_API_KEY}`;
+const ALCHEMY_URL = `https://polygon-amoy.g.alchemy.com/v2/${ALCHEMY_API_KEY}`;
 //const ALCHEMY_URL = `https://polygon-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}`;
 //const ALCHEMY_URL = `https://eth-sepolia.g.alchemy.com/v2/${ALCHEMY_API_KEY}`;
 //const ALCHEMY_URL = `https://eth-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY}`;
@@ -24,17 +24,18 @@ module.exports = {
     },
   },
   gasReporter: {
-    enabled: process.env.REPORT_GAS ? true : false,
+    enabled: false,
     currency: "USD",
     coinmarketcap: COINMARKETCAP_API_KEY,
     token: "MATIC", // ETH for testing
     outputFile: "gas-report.txt",
     noColors: true,
   },
-  defaultNetwork: "polygonMumbai", // hardhat for testing, change this for different networks (polygonMumbai)
+  defaultNetwork: "polygonAmoy", // hardhat for testing, change this for different networks (polygonMumbai)
   networks: {
     hardhat: {
       chainId: 31337,
+    
     },
     polygonMumbai: {
       url: ALCHEMY_URL,
@@ -42,6 +43,14 @@ module.exports = {
       gasPrice: 35000000000,
       chainId: 80001,
     },
+
+    polygonAmoy: {
+        url: ALCHEMY_URL,
+        accounts: [STUNT_WALLET_PRIVATE_KEY],
+        gasPrice: 35000000000,
+        chainId: 80002,
+      },
+
     polygon: {
       url: ALCHEMY_URL,
       accounts: [STUNT_WALLET_PRIVATE_KEY],
